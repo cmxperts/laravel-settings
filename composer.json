@@ -1,0 +1,30 @@
+{
+    "name": "cmxperts/laravel-settings",
+    "description": "Laravel Settings Manager",
+    "keywords": ["laravel", "settings", "options"],
+    "license": "MIT",
+    "require": {
+        "laravel/framework": "^10.0",
+        "akaunting/laravel-setting": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "CmXperts\\Settings\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "U D Parashar",
+            "email": "cmxperts@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CmXperts\\Settings\\SettingsServiceProvider"
+            ]
+        }
+    },
+    "prefer-stable": true
+}

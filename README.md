@@ -1,4 +1,4 @@
-# menu
+# Settings
 Settings Management for Laravel 10
 
 ### Installation
@@ -14,13 +14,13 @@ composer require cmxperts/laravel-settings
 2. Add the following class, to "providers" array in the file config/app.php (optional on laravel 5.5)
 
 ```php
-CmXperts\Settings\Providers\SettingsServiceProvider::class,
+CmXperts\Settings\SettingsServiceProvider::class,
 ```
 
 3. Run publish
 
 ```php
-php artisan vendor:publish --provider="CmXperts\Settings\Providers\SettingsServiceProvider"
+php artisan vendor:publish --provider="CmXperts\Settings\SettingsServiceProvider"
 ```
 
 4. Configure (optional) in **_config/cmx_settings.php_** :

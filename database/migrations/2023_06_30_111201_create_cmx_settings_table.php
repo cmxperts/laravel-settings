@@ -13,17 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cmx_uploads', function (Blueprint $table) {
+        Schema::create(config('cmx_settings.table_prefix') . config('cmx_settings.table'), function (Blueprint $table) {
             $table->integer('id', true);
-            $table->unsignedBigInteger('user_id')->nullable()->index('user_id');
-            $table->string('file_original_name')->nullable();
-            $table->string('file_name')->nullable();
-            $table->integer('file_size')->nullable();
-            $table->string('extension', 10)->nullable();
-            $table->string('type', 15)->nullable();
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
-            $table->softDeletes();
+            $table->string('key', 255);
+            $table->text('value')->nullable();
         });
     }
 
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cmx_uploads');
+        Schema::dropIfExists(config('cmx_settings.table_prefix') . config('cmx_settings.table'));
     }
 };

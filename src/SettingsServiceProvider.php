@@ -13,17 +13,24 @@ use Illuminate\Support\Facades\Blade;
 class SettingsServiceProvider extends ServiceProvider
 {
 
+    public function boot(Router $router, Dispatcher $event)
+    {
+        if (!$this->app->routesAreCached()) {
+            require  __DIR__ . '/../../routes/web.php';
+        }
+
+        if ($this->app->runningInConsole()) {
+            $this->publishResource();
+        }
+
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'cmxperts');
+
+    }
+
     public function register()
     {
         // Register Resources
         $this->registerResource();
-    }
-
-    public function boot(Router $router, Dispatcher $event)
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishResource();
-        }
     }
 
     /**
@@ -66,9 +73,6 @@ class SettingsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'cmx-settings-migrations');
-/*        $this->publishes([
-            __DIR__ . '/../payload/assets' => public_path('cmx-settings/assets'),
-        ], 'cmx-settings-assets-files');*/
     }
 
 }

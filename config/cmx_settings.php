@@ -5,13 +5,13 @@ return [
     'middleware' => [],
 
     /* you can set your own table prefix here */
-    'table_prefix' => 'cmx_',
+    'table_prefix' => '',
 
     /* you can set your own table names */
     'table' => 'settings',
 
     /* you can set your route path*/
-    'route_prefix' => 'cmxmenu',
+    'route_prefix' => 'cmxperts/settings',
 
     /* here you can make menu items visible to specific roles */
     'use_roles' => false,

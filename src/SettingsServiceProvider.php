@@ -16,14 +16,14 @@ class SettingsServiceProvider extends ServiceProvider
     public function boot(Router $router, Dispatcher $event)
     {
         if (!$this->app->routesAreCached()) {
-            require  __DIR__ . '/../../routes/web.php';
+            require  __DIR__ . '/../routes/web.php';
         }
 
         if ($this->app->runningInConsole()) {
             $this->publishResource();
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'cmxperts');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'cmxperts');
 
     }
 
